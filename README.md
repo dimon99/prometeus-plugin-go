@@ -12,3 +12,5 @@ Example:
 
 http://localhost:8181/metrics
 http://localhost:8181/info
+
+You can find build docker script with dockerfile in
