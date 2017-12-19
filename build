@@ -1,11 +1,12 @@
 #!/bin/bash
 
+tag=`git describe --abbrev=0 --tags | sed  's/^v//'`
 # $IMAGE_NAME var is injected into the build so the tag is correct.
-IMAGE_NAME="dfedoruk/custom-metric:v1.1.2"
+IMAGE_NAME="dfedoruk/custom-metric:$tag"
 
-echo "Build the image:v1.1.2"
+echo "Build the image: $tag"
 
 docker build \
-  --build-arg version="1.0.0" \
+  --build-arg version="$tag" \
   --build-arg build_date=$(date -u +"%Y-%m-%dT%H:%M:%SZ") \
   -t $IMAGE_NAME .
