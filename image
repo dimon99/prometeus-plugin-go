@@ -6,7 +6,7 @@ tag=`git describe --abbrev=0 --tags | sed  's/^v//'`
 # $IMAGE_NAME var is injected into the build so the tag is correct.
 IMAGE_NAME="dfedoruk/custom-metric:$tag"
 
-case $1 in 
+case $1 in
     build)
   echo "Build the image: $tag"
   docker build \
@@ -15,8 +15,7 @@ case $1 in
     -t $IMAGE_NAME .
     ;;
    push)
-
-   docker push $IMAGE_NAME
+  docker push $IMAGE_NAME
    ;;
 
 esac
