@@ -1,0 +1,24 @@
+#!/bin/bash
+
+printf "Build/push container script"
+
+read ACTION
+
+tag=`git describe --abbrev=0 --tags | sed  's/^v//'`
+# $IMAGE_NAME var is injected into the build so the tag is correct.
+IMAGE_NAME="dfedoruk/custom-metric:$tag"
+
+case $ACTION in 
+    build)
+  echo "Build the image: $tag"
+  docker build \
+    --build-arg version="$tag" \
+    --build-arg build_date=$(date -u +"%Y-%m-%dT%H:%M:%SZ") \
+    -t $IMAGE_NAME .
+    ;;
+   push)
+   
+   docker push $IMAGE_NAME
+   ;;
+
+esac
