@@ -23,7 +23,7 @@ case $1 in
 
 #  /usr/local/bin/docker push $IMAGE_NAME
 
-   /usr/local/bin/docker push $REPO:/$IMAGE_NAME
+   /usr/local/bin/docker push $REPO/$IMAGE_NAME
 
    ;;
 
