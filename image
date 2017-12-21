@@ -9,7 +9,7 @@ tag=`git describe --abbrev=0 --tags | sed  's/^v//'`
 # $IMAGE_NAME var is injected into the build so the tag is correct.
 
 #IMAGE_NAME="dfedoruk/custom-metric:$tag"
-IMAGE_NAME="custom-metric:$tag"
+IMAGE_NAME="$REPO/custom-metric:$tag"
 
 case $1 in
     build)
