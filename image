@@ -8,8 +8,10 @@ tag=`git describe --abbrev=0 --tags | sed  's/^v//'`
 
 # $IMAGE_NAME var is injected into the build so the tag is correct.
 
-#IMAGE_NAME="dfedoruk/custom-metric:$tag"
-IMAGE_NAME="custom-metric:$tag"
+#HUB
+IMAGE_NAME="dfedoruk/custom-metric:$tag"
+#ECR
+#IMAGE_NAME="custom-metric:$tag"
 
 case $1 in
     build)
@@ -22,9 +24,11 @@ case $1 in
     ;;
    push)
 
-#  /usr/local/bin/docker push $IMAGE_NAME
+#Dockerhub
+  /usr/local/bin/docker push $IMAGE_NAME
 
-   /usr/local/bin/docker push $REPO/$IMAGE_NAME
+#ERC
+#   /usr/local/bin/docker push $REPO/$IMAGE_NAME
 
    ;;
 
