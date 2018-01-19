@@ -78,6 +78,6 @@ func main() {
 
 	r.Handle("/metrics", prometeushendler())
 	r.Handle("/info", mydata(cpuTemp)).Methods("GET")
-        r.Handler("/", hellow).Methods("GET")
+        r.Handle("/", hellow).Methods("GET")
 	log.Fatal(s.ListenAndServe())
 }
