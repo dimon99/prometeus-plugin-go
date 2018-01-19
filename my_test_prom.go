@@ -35,6 +35,14 @@ func mydata(options prometheus.Gauge) http.HandlerFunc {
 		w.Write(out)
 	}
 }
+
+func hellow(w http.ResponseWriter, req *http.Request){
+        w.WriteHeader(http.StatusOK)
+        fmt.Fprintln(w, "Overview\n")
+        fmt.Fprintln(w, "                     ")
+        fmt.Fprintln(w, "Hellow world! This is Prometeus plugin for TEST purposes")
+}
+
 func task() {
 	host, _ := os.Hostname()
 	addrs, _ := net.LookupIP(host)
@@ -70,5 +78,6 @@ func main() {
 
 	r.Handle("/metrics", prometeushendler())
 	r.Handle("/info", mydata(cpuTemp)).Methods("GET")
+        r.Handler("/", hellow).Methods("GET")
 	log.Fatal(s.ListenAndServe())
 }
