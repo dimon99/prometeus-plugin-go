@@ -36,7 +36,7 @@ func mydata(options prometheus.Gauge) http.HandlerFunc {
 	}
 }
 
-func hellow(w http.ResponseWriter, req *http.Request){
+func hellow(w http.ResponseWriter, req *http.Request) {
         w.WriteHeader(http.StatusOK)
         fmt.Fprintln(w, "Overview\n")
         fmt.Fprintln(w, "                     ")
@@ -78,6 +78,6 @@ func main() {
 
 	r.Handle("/metrics", prometeushendler())
 	r.Handle("/info", mydata(cpuTemp)).Methods("GET")
-        r.Handle("/", hellow).Methods("GET")
+        r.HandleFunc("/", hellow).Methods("GET")
 	log.Fatal(s.ListenAndServe())
 }
