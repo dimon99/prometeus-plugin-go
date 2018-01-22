@@ -1,0 +1,15 @@
+version: '3'
+services:
+  custom-metric:
+    image: dfedoruk/custom-metric:1.0.0
+    ports:
+      - "80:8181"
+    deploy:
+      placement:
+        constraints:
+          - node.role != manager
+    networks:
+      - backend
+
+networks:
+  backend:
