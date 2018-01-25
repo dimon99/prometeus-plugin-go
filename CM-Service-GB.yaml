@@ -11,3 +11,4 @@ spec:
       targetPort: 8181
    selector:
      name: CM
+     version: "1.0.0-x"
