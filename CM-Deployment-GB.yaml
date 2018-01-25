@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: CM
+  labels:
+     name: CM
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+         name: CM
+    spec:
+      containers:
+      - name: custom-metric
+        image: dfedoruk/custom-metric:1.0.0
+        ports:
+        - containerPort: 8181
+      imagePullSecrets:
+      - name: myregistrykey
