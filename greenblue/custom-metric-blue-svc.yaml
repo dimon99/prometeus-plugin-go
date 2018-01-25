@@ -1,25 +1,3 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: custom-metric-blue
-  labels:
-     name: blue
-spec:
-  replicas: 3
-  template:
-    metadata:
-      labels:
-        name: custom-metric
-        color: blue
-    spec:
-      containers:
-      - name: custom-metric
-        image: dfedoruk/custom-metric:1.0.0
-        ports:
-        - containerPort: 8181
-      imagePullSecrets:
-      - name: myregistrykey
----
 apiVersion: v1
 kind: Service
 metadata:
@@ -34,4 +12,3 @@ spec:
    selector:
         name: custom-metric
         color: blue
-        
