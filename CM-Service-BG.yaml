@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: CM
+  name: cm
   labels:
-    name: CM
+    name: cm
 spec:
    type: LoadBalancer
    ports:
     - port: 8181
       targetPort: 8181
    selector:
-     name: CM
+     name: cm
      version: "1.0.0-x"

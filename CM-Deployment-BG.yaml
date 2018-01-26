@@ -1,17 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: CM-1.0.0-x
+  name: cm-1.0.0-x
 spec:
   replicas: 3
   template:
     metadata:
       labels:
-         name: CM
+         name: cm
          version: "1.0.0-x"
     spec:
       containers:
-      - name: custom-metric
+      - name: cm
         image: dfedoruk/custom-metric:1.0.0-x
         ports:
         - containerPort: 8181
