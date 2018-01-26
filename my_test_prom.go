@@ -40,7 +40,7 @@ func hellow(w http.ResponseWriter, req *http.Request) {
         w.WriteHeader(http.StatusOK)
         fmt.Fprintln(w, "Overview\n")
         fmt.Fprintln(w, "                     ")
-        fmt.Fprintln(w, "Hellow world! This is Prometeus plugin for TEST purposes!")
+        fmt.Fprintln(w, "Hellow world! This is Prometeus plugin for TEST1 purposes!")
 }
 
 func task() {
