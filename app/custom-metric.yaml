@@ -16,8 +16,6 @@ spec:
         image: dfedoruk/custom-metric:1.0.0
         ports:
         - containerPort: 8181
-      imagePullSecrets:
-      - name: myregistrykey
 ---
 apiVersion: v1
 kind: Service
