@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: custom-metric
-        image: dfedoruk/custom-metric:1.0.0
+        image: dfedoruk/custom-metric:v1.1.226
         ports:
         - containerPort: 8181
 ---
