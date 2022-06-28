@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"os/exec"
 	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"fmt"
 	"strconv"
 	"regexp"
@@ -18,7 +19,7 @@ import (
 func prometeushendler() http.Handler {
 	//_,s := http.Get("http://localhost:8080/info")
 	//fmt.Println("hhh",s)
-	return prometheus.Handler()
+	return promhttp.Handler()
 
 }
 
