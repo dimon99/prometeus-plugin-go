@@ -5,7 +5,7 @@ printf "Build/push container script"
 REPO=$2
 
 #tag=`git describe --abbrev=0 --tags | sed  's/^v//'`
-tag=prod
+tag=dev
 # $IMAGE_NAME var is injected into the build so the tag is correct.
 
 #HUB
