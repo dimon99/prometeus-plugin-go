@@ -7,6 +7,9 @@ metadata:
   namespace: default
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      name: custom-metric
   template:
     metadata:
       labels:
