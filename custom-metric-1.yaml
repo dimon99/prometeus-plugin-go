@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-metric
+  labels:
+     name: custom-metric
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: custom-metric
+  template:
+    metadata:
+      labels:
+         name: custom-metric
+    spec:
+      containers:
+      - name: custom-metric
+        image: dfedoruk/custom-metric:v1.1.226
+        ports:
+        - containerPort: 8181
+      imagePullSecrets:
+      - name: myregistrykey
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: custom-metric
+  labels:
+    name: custom-metric
+spec:
+   type: LoadBalancer
+   ports:
+    - port: 80
+      targetPort: 8181
+   selector:
+     name: custom-metric

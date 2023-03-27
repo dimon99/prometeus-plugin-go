@@ -4,6 +4,7 @@ metadata:
   name: custom-metric-blue
   labels:
      name: blue
+  namespace: default
 spec:
   replicas: 3
   template:

@@ -4,6 +4,7 @@ metadata:
   name: custom-metric
   labels:
     name: custom-metric
+  namespace: default
 spec:
    type: LoadBalancer
    ports:

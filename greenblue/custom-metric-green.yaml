@@ -4,6 +4,7 @@ metadata:
   name: custom-metric-green
   labels:
      name: green
+  namespace: default
 spec:
   replicas: 3
   template:
