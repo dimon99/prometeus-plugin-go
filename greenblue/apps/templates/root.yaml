@@ -1,8 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-cd2
-  namespace: default
+  name: root
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
@@ -11,9 +10,9 @@ spec:
     namespace: default
   project: default
   source:
-    path: greenblue
-    repoURL: https://github.com/dimon99/prometeus-plugin-go
-    targetRevision: master
+    path: apps/
+    repoURL: https://github.com/arthurk/argocd-example-install.git
+    targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
