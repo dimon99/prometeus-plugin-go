@@ -13,7 +13,7 @@ spec:
   source:
     path: greenblue
     repoURL: https://github.com/dimon99/prometeus-plugin-go
-    targetRevision: HEAD
+    targetRevision: master
   syncPolicy:
     automated:
       prune: true
