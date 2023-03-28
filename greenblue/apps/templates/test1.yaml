@@ -11,8 +11,6 @@ spec:
   # Allow manifests to deploy from any Git repos
   sourceRepos:
   - '*'
-  sourceNamespaces:
-  - '*'
   # Only permit applications to deploy to the guestbook namespace in the same cluster
   destinations:
   - namespace: default
@@ -20,7 +18,7 @@ spec:
   # Deny all cluster-scoped resources from being created, except for Namespace
   clusterResourceWhitelist:
   - group: ''
-    kind: '*'
+    kind: Namespace
   # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
   namespaceResourceBlacklist:
   - group: ''
@@ -30,13 +28,13 @@ spec:
   - group: ''
     kind: NetworkPolicy
   # Deny all namespaced-scoped resources from being created, except for Deployment and StatefulSet
-  #namespaceResourceWhitelist:
-  #- group: 'apps'
-  #    kind: Deployment
-  #- group: 'apps'
-  #    kind: StatefulSet
-  #- group: 'apps'
-  #    kind:  argoproj.io:Application
+  namespaceResourceWhitelist:
+  - group: 'apps'
+    kind: Deployment
+  - group: 'apps'
+    kind: StatefulSet
+  - group: 'apps'
+    kind:  argoproj.io:Application
   roles:
   # A role which provides read-only access to all applications in the project
   - name: read-only
