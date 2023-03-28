@@ -11,8 +11,8 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: apps/
-    repoURL: https://github.com/arthurk/argocd-example-install.git
+    path: greenblue/apps/templates
+    repoURL: https://github.com/dimon99/prometeus-plugin-go
     targetRevision: HEAD
   syncPolicy:
     automated:
