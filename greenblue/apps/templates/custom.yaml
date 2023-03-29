@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: custom
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  project: default
+  source:
+    path: greenblue
+    repoURL: https://github.com/dimon99/prometeus-plugin-go
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
