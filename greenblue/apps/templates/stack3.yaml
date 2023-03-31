@@ -1,8 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: stack
- # namespace: argocd
+  name: stack3
+  annotations:
+      notifications.argoproj.io/subscriptions: |
+        - trigger: [on-sync-failed, on-deployed, on-health-degraded]
+          destinations:
+            - service: slack
+              recipients: [argo]
+        - trigger: [on-sync-running, on-sync-status-unknown, on-sync-succeeded]
+          destinations:
+            - service: slack
+              recipients: [argo]
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
